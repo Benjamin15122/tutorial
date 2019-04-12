@@ -23,8 +23,8 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = (dispatch) =>{
   return {
-    click: ()=>dispatch({type:"typecount/click",payload:{photo:"clothes"}}),
-    // get: ()=>dispatch({type:"typecount/get"})
+    // click: ()=>dispatch({type:"typecount/click",payload:{photo:"clothes"}}),
+    get: ()=>dispatch({type:"typecount/get"})
   }
 }
 
@@ -47,7 +47,7 @@ class MyPage extends Component{
         })
       }}>Click Me</Button>
       <Tag color="lime">{this.state.count}</Tag> */}
-      <MyButton  type={this.props.mystate.type} typeChange={this.props.click}/>
+      <MyButton  type={this.props.mystate.type} typeChange={this.props.get}/>
       <Tag color="lime">{this.props.mystate.count}</Tag>
     </ul>
     </div>)
