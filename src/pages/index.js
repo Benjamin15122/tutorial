@@ -1,7 +1,8 @@
 import styles from './index.css';
-import {Button,Tag} from 'antd';
+import {Button,Tag,Row,Col} from 'antd';
 import React,{Component} from 'react';
 import {connect} from 'dva';
+import Link from 'umi/link';
 // const typeMap = ["dashed","normal","danger","primary"];
 
 class MyButton extends Component{
@@ -38,18 +39,19 @@ class MyPage extends Component{
     // console.log(this.props.mystate);
     return(
     <div className={styles.normal}>
-    <ul className={styles.list}>
-      {/* <Button type={this.state.type} onClick={()=>{
-        let count = this.state.count+1;
-        this.setState({
-          type: typeMap[count%4],
-          count: count
-        })
-      }}>Click Me</Button>
-      <Tag color="lime">{this.state.count}</Tag> */}
-      <MyButton  type={this.props.mystate.type} typeChange={this.props.get}/>
-      <Tag color="lime">{this.props.mystate.count}</Tag>
-    </ul>
+    {/* <Button type={this.state.type} onClick={()=>{
+      let count = this.state.count+1;
+      this.setState({
+        type: typeMap[count%4],
+        count: count
+      })
+    }}>Click Me</Button>
+    <Tag color="lime">{this.state.count}</Tag> */}
+      <Col>
+        <Row><MyButton  type={this.props.mystate.type} typeChange={this.props.get}/></Row>
+        <Row><Tag color="lime">{this.props.mystate.count}</Tag></Row>
+        <Row><Link to="/list"><Button>Go to Lists</Button></Link></Row>
+      </Col>
     </div>)
   }
 }
